@@ -44,7 +44,12 @@ app.use('/api/invoice', invoiceRouter);
 // port
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://eduwork:book@127.0.0.1:27017/tugas?authSource=admin');
+mongoose
+  .connect(
+    'mongodb://root:root123@ac-ufjoenx-shard-00-00.wv5qisj.mongodb.net:27017,ac-ufjoenx-shard-00-01.wv5qisj.mongodb.net:27017,ac-ufjoenx-shard-00-02.wv5qisj.mongodb.net:27017/eduwork-commerce?ssl=true&replicaSet=atlas-xeklsr-shard-0&authSource=admin&retryWrites=true&w=majority'
+  )
+  .then(() => console.log('Terhubung ke MongoDB Atlas'))
+  .catch((err) => console.error('Kesalahan koneksi:', err));
 
 app.listen(port, () => {
   console.log(`Server is running on port:${port}`);
