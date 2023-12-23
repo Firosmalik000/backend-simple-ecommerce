@@ -45,9 +45,7 @@ app.use('/api/invoice', invoiceRouter);
 const port = process.env.PORT || 5000;
 
 mongoose
-  .connect(
-    'mongodb://root:root123@ac-ufjoenx-shard-00-00.wv5qisj.mongodb.net:27017,ac-ufjoenx-shard-00-01.wv5qisj.mongodb.net:27017,ac-ufjoenx-shard-00-02.wv5qisj.mongodb.net:27017/eduwork-commerce?ssl=true&replicaSet=atlas-xeklsr-shard-0&authSource=admin&retryWrites=true&w=majority'
-  )
+  .connect(process.env.MONGO_URL)
   .then(() => console.log('Terhubung ke MongoDB Atlas'))
   .catch((err) => console.error('Kesalahan koneksi:', err));
 
