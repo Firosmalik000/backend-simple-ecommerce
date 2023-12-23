@@ -1,4 +1,0 @@
- name: web
-  env: node
-  buildCommand: npm run build
-  startCommand: npm run dev
